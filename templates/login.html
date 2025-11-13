@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Secure Login</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <div class="login-container">
+        <!-- Step 1: PIN -->
+        <div id="pin-step" class="login-step active">
+            <h2>Step 1: Enter PIN</h2>
+            <p>Please enter your 6-digit PIN.</p>
+            <input type="password" id="pin" class="form-input" placeholder="PIN" maxlength="6">
+            <button class="form-button" onclick="verifyPin()">Next</button>
+        </div>
+
+        <!-- Step 2: Password -->
+        <div id="password-step" class="login-step">
+            <h2>Step 2: Enter Password</h2>
+            <p>Please enter your password.</p>
+            <input type="password" id="password" class="form-input" placeholder="Password">
+            <button class="form-button" onclick="verifyPassword()">Next</button>
+        </div>
+
+        <!-- Step 3: Puzzle -->
+        <div id="puzzle-step" class="login-step">
+            <h2>Step 3: Solve the Puzzle</h2>
+            <p id="puzzle-instruction">Click inside the puzzle area to reveal the final button.</p>
+            <div id="puzzle-container" title="Click me">
+                <!-- A real puzzle would go here. For now, it's a clickable area. -->
+                🧩
+            </div>
+            <button id="hidden-submit" class="form-button" onclick="finalLogin()">Submit</button>
+        </div>
+    </div>
+
+    <!-- Link to our JavaScript file -->
+    <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+</body>
+</html>
