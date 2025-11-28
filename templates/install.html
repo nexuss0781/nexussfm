@@ -23,28 +23,8 @@
                     <div class="bg-dark text-light p-3 rounded mb-3" style="font-family: 'Courier New', monospace;">
                         <code
                             style="color: #0f0;">Invoke-WebRequest -Uri "{{ server_url }}/download/client" -OutFile "filevault_client.py"</code>
-                        <button class="btn btn-sm btn-outline-light float-end"
-                            onclick="copyToClipboard('Invoke-WebRequest -Uri \'{{ server_url }}/download/client\' -OutFile \'filevault_client.py\'')">
-                            <i class="bi bi-clipboard"></i> Copy
-                        </button>
-                    </div>
-
-                    <h6>Linux/Mac:</h6>
-                    <div class="bg-dark text-light p-3 rounded mb-3" style="font-family: 'Courier New', monospace;">
-                        <code
-                            style="color: #0f0;">curl -O {{ server_url }}/download/client && mv client filevault_client.py</code>
-                        <button class="btn btn-sm btn-outline-light float-end"
-                            onclick="copyToClipboard('curl -O {{ server_url }}/download/client && mv client filevault_client.py')">
-                            <i class="bi bi-clipboard"></i> Copy
-                        </button>
-                    </div>
-
-                    <h6>Or using wget:</h6>
-                    <div class="bg-dark text-light p-3 rounded" style="font-family: 'Courier New', monospace;">
-                        <code style="color: #0f0;">wget {{ server_url }}/download/client -O filevault_client.py</code>
-                        <button class="btn btn-sm btn-outline-light float-end"
-                            onclick="copyToClipboard('wget {{ server_url }}/download/client -O filevault_client.py')">
-                            <i class="bi bi-clipboard"></i> Copy
+                        onclick="copyToClipboard('wget {{ server_url }}/download/client -O filevault_client.py')">
+                        <i class="bi bi-clipboard"></i> Copy
                         </button>
                     </div>
                 </div>

@@ -20,7 +20,7 @@ iwr -useb https://your-filevault-server.com/install.ps1 | iex
 
 **Method 1 - Direct download (curl):**
 ```bash
-curl -O https://your-filevault-server.com/download/client
+curl -L -O https://password-manager-ccgh.onrender.com/download/client
 mv client filevault_client.py
 pip3 install requests
 python3 filevault_client.py --help
@@ -28,14 +28,14 @@ python3 filevault_client.py --help
 
 **Method 2 - Direct download (wget):**
 ```bash
-wget https://your-filevault-server.com/download/client -O filevault_client.py
+wget https://password-manager-ccgh.onrender.com/download/client -O filevault_client.py
 pip3 install requests
 python3 filevault_client.py --help
 ```
 
 **Method 3 - Automated installer:**
 ```bash
-curl -sSL https://your-filevault-server.com/install.sh | bash
+curl -sSL https://password-manager-ccgh.onrender.com/static/install.sh | bash
 ```
 
 ---

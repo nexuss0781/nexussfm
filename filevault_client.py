@@ -438,47 +438,56 @@ class FileVaultClient:
             return False
 
 
+    def push(self, directory: str = '.', folder_id: Optional[int] = None) -> bool:
+        """
+        Stage and push all project content to the server
+        Acts like 'git push' - scans, stages, and uploads
+        """
+        dir_path = Path(directory)
+        if not dir_path.exists():
+            print_error(f"Directory not found: {directory}")
+            return False
+
+        print(f"\n{Colors.BOLD}🔍 Assessing project content...{Colors.RESET}")
+        
+        # 1. Assess/Stage
+        files = [f for f in dir_path.glob('**/*') if f.is_file()]
+        if not files:
+            print_warning("No files found to push.")
+            return True
+
+        total_size = sum(f.stat().st_size for f in files)
+        size_mb = total_size / (1024 * 1024)
+
+        print(f"   Found {len(files)} files ({size_mb:.2f} MB)")
+        print(f"   Staged for upload: {Colors.GREEN}All files{Colors.RESET}")
+        
+        # 2. Upload
+        print(f"\n{Colors.BOLD}🚀 Pushing to remote server...{Colors.RESET}")
+        results = self.upload_files([str(f) for f in files], folder_id)
+        
+        if results['failed'] == 0:
+            print(f"\n{Colors.GREEN}✅ Push complete! All files are safely on the server.{Colors.RESET}")
+            return True
+        else:
+            print(f"\n{Colors.YELLOW}⚠ Push completed with some errors.{Colors.RESET}")
+            return False
+
 def main():
     """Main CLI entry point"""
     parser = argparse.ArgumentParser(
         description=f'FileVault Client v{VERSION} - Professional remote file management',
         formatter_class=argparse.RawDescriptionHelpFormatter,
         epilog="""
-Examples:
-  # Login to server
-  filevault login user@example.com mypassword
-  
-  # Upload files with wildcards
-  filevault upload *.pdf                    # Upload all PDFs in current directory
-  filevault upload *.jpg *.png              # Upload all images
-  filevault upload **/*.py                  # Upload all Python files recursively
-  
-  # Upload specific files
-  filevault upload document.pdf photo.jpg
-  
-  # Upload to a specific folder
-  filevault upload *.txt --folder-id 5
-  
-  # Upload entire directory
-  filevault upload-dir ./my_documents
-  filevault upload-dir ./project --recursive
-  
-  # List files
-  filevault list
-  filevault list --folder-id 10
-  
-  # Download files
-  filevault download 123
-  filevault download 123 --output myfile.pdf
-  
-  # Create folder
-  filevault mkdir "My Folder"
-  
-  # Show current user
-  filevault whoami
-  
-  # Show version
-  filevault --version
+Commands:
+  login       Login to server
+  push        Stage and push all project files (like git push)
+  upload      Upload specific files
+  upload-dir  Upload a directory
+  list        List files and folders
+  download    Download a file
+  mkdir       Create a folder
+  whoami      Show current user info
         """)
     
     parser.add_argument('--version', action='version', version=f'FileVault Client v{VERSION}')
@@ -491,6 +500,11 @@ Examples:
     login_parser = subparsers.add_parser('login', help='Login to server')
     login_parser.add_argument('email', help='Email address')
     login_parser.add_argument('password', help='Password')
+    
+    # Push command (New!)
+    push_parser = subparsers.add_parser('push', help='Stage and push all project content')
+    push_parser.add_argument('directory', nargs='?', default='.', help='Directory to push (default: current)')
+    push_parser.add_argument('--folder-id', type=int, help='Remote folder ID to push to')
     
     # Upload command - supports wildcards
     upload_parser = subparsers.add_parser('upload', help='Upload file(s) - supports wildcards')
@@ -542,6 +556,10 @@ Examples:
             success = client.login(args.email, args.password)
             return 0 if success else 1
         
+        elif args.command == 'push':
+            success = client.push(args.directory, args.folder_id)
+            return 0 if success else 1
+            
         elif args.command == 'upload':
             client.upload_files(args.files, args.folder_id, args.recursive)
             return 0

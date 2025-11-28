@@ -53,6 +53,12 @@ I've upgraded the FileVault client with these **amazing new features**:
 
 Configuration is saved to `~/.filevault_config.json` - you stay logged in!
 
+### Push Project (New!)
+Stage and push all content (like git push):
+```bash
+.\venv\Scripts\python filevault_client.py push
+```
+
 ### Upload Commands
 
 ```bash

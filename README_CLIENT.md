@@ -39,7 +39,15 @@ filevault login user@example.com mypassword
 
 Your authentication token is saved securely in `~/.filevault_config.json`
 
-### 2. Upload Files
+### 2. Push Project (New!)
+
+Stage and push all project content (like `git push`):
+```bash
+filevault push
+```
+This scans your current directory, shows you what will be uploaded, and pushes everything to the server.
+
+### 3. Upload Files
 
 #### Upload all PDFs in current directory
 ```bash
