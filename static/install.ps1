@@ -2,7 +2,7 @@
 # Usage: iwr -useb https://your-server.com/install.ps1 | iex
 
 param(
-    [string]$ServerUrl = "http://localhost:5000"
+    [string]$ServerUrl = "https://your-app-name.onrender.com"
 )
 
 # Configuration
@@ -18,12 +18,14 @@ Write-Host ""
 try {
     $pythonVersion = python --version 2>&1
     Write-Host "✓ Python found: $pythonVersion" -ForegroundColor Green
-} catch {
+}
+catch {
     try {
         $pythonVersion = py --version 2>&1
         Write-Host "✓ Python found: $pythonVersion" -ForegroundColor Green
         $PythonCmd = "py"
-    } catch {
+    }
+    catch {
         Write-Host "✗ Python is not installed. Please install Python first." -ForegroundColor Red
         Write-Host "  Download from: https://www.python.org/downloads/" -ForegroundColor Yellow
         exit 1
@@ -40,7 +42,8 @@ Write-Host "⬇ Downloading FileVault client from $ServerUrl..." -ForegroundColo
 try {
     Invoke-WebRequest -Uri $ClientUrl -OutFile $ClientFile -UseBasicParsing
     Write-Host "✓ Client downloaded successfully" -ForegroundColor Green
-} catch {
+}
+catch {
     Write-Host "✗ Failed to download client: $_" -ForegroundColor Red
     exit 1
 }
@@ -51,7 +54,8 @@ Write-Host "📦 Installing dependencies..." -ForegroundColor Blue
 try {
     & $PythonCmd -m pip install requests --quiet --user
     Write-Host "✓ Dependencies installed" -ForegroundColor Green
-} catch {
+}
+catch {
     Write-Host "⚠ Warning: Failed to install dependencies. You may need to install 'requests' manually." -ForegroundColor Yellow
 }
 

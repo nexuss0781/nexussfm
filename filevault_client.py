@@ -19,7 +19,8 @@ from datetime import datetime
 
 # Configuration
 CONFIG_FILE = os.path.expanduser('~/.filevault_config.json')
-DEFAULT_SERVER = 'http://localhost:5000'
+# Use Render URL if set, otherwise default to localhost
+DEFAULT_SERVER = os.environ.get('FILEVAULT_SERVER', 'https://your-app-name.onrender.com')
 VERSION = '1.0.0'
 
 # ANSI color codes for better terminal output

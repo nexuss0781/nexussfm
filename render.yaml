@@ -1,0 +1,18 @@
+services:
+  - type: web
+    name: filevault
+    env: python
+    buildCommand: pip install -r requirements.txt
+    startCommand: gunicorn app:app
+    envVars:
+      - key: PYTHON_VERSION
+        value: 3.11.5
+      - key: SECRET_KEY
+        generateValue: true
+      - key: JWT_SECRET_KEY
+        generateValue: true
+      - key: FILEVAULT_SERVER
+        fromService:
+          type: web
+          name: filevault
+          property: url
