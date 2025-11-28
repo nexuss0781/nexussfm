@@ -2,7 +2,7 @@
 # Usage: iwr -useb https://your-server.com/install.ps1 | iex
 
 param(
-    [string]$ServerUrl = "https://your-app-name.onrender.com"
+    [string]$ServerUrl = "https://password-manager-ccgh.onrender.com"
 )
 
 # Configuration
