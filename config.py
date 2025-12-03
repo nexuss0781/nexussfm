@@ -41,7 +41,7 @@ class Config:
     BASE_DIR = os.path.abspath(os.path.dirname(__file__))
     
     # Application info
-    APP_NAME = 'FileVault'
+    APP_NAME = 'Nexuss Project Management System'
     APP_VERSION = '1.0.0'
     
     # Secret keys
@@ -70,4 +70,4 @@ class Config:
     PERMANENT_SESSION_LIFETIME = timedelta(days=7)
     
     # CORS settings
-    CORS_ORIGINS = os.environ.get('CORS_ORIGINS', 'http://localhost:5000,http://127.0.0.1:5000,https://password-manager-ccgh.onrender.com').split(',')
+    CORS_ORIGINS = os.environ.get('CORS_ORIGINS', 'http://localhost:5000,http://127.0.0.1:5000,https://nexussfm.onrender.com').split(',')

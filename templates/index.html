@@ -1,0 +1,140 @@
+{% extends "base.html" %}
+
+{% block title %}Nexuss - Professional Project Management{% endblock %}
+
+{% block content %}
+<div class="container-fluid p-0">
+    <!-- Hero Section -->
+    <div class="hero-section text-center py-5"
+        style="background: linear-gradient(135deg, rgba(13, 110, 253, 0.1) 0%, rgba(255, 255, 255, 0) 100%);">
+        <div class="container py-5">
+            <h1 class="display-3 fw-bold mb-4 gradient-text">Nexuss Project Management</h1>
+            <p class="lead text-muted mb-5 mx-auto" style="max-width: 700px;">
+                Secure, professional, and intuitive file management for modern teams.
+                Access your projects from anywhere with our powerful CLI and Web Interface.
+            </p>
+            <div class="d-flex justify-content-center gap-3">
+                <a href="{{ url_for('register_page') }}"
+                    class="btn btn-primary btn-lg px-5 py-3 rounded-pill shadow-sm">
+                    Get Started <i class="bi bi-arrow-right ms-2"></i>
+                </a>
+                <a href="{{ url_for('login_page') }}" class="btn btn-outline-secondary btn-lg px-5 py-3 rounded-pill">
+                    Login
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Features Grid -->
+    <div class="container py-5">
+        <div class="row g-4">
+            <div class="col-md-4">
+                <div class="glass-card h-100 p-4 text-center">
+                    <div class="icon-box mb-3 text-primary">
+                        <i class="bi bi-terminal" style="font-size: 2.5rem;"></i>
+                    </div>
+                    <h3>Powerful CLI</h3>
+                    <p class="text-muted">
+                        Push projects like git. Manage files directly from your terminal with our professional
+                        command-line tool.
+                    </p>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="glass-card h-100 p-4 text-center">
+                    <div class="icon-box mb-3 text-success">
+                        <i class="bi bi-shield-lock" style="font-size: 2.5rem;"></i>
+                    </div>
+                    <h3>Enterprise Security</h3>
+                    <p class="text-muted">
+                        JWT authentication, isolated storage, and secure encryption keep your project data safe and
+                        private.
+                    </p>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="glass-card h-100 p-4 text-center">
+                    <div class="icon-box mb-3 text-info">
+                        <i class="bi bi-cloud-arrow-up" style="font-size: 2.5rem;"></i>
+                    </div>
+                    <h3>Seamless Sync</h3>
+                    <p class="text-muted">
+                        Upload directories, drag-and-drop files, and access your content from any device, anywhere.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- CLI Preview Section -->
+    <div class="container py-5">
+        <div class="row align-items-center">
+            <div class="col-lg-6">
+                <h2 class="fw-bold mb-4">Developer First Experience</h2>
+                <p class="text-muted mb-4">
+                    Nexuss isn't just a web drive. It's built for developers who live in the terminal.
+                    Install our client and manage your projects without leaving your workflow.
+                </p>
+                <div class="d-flex flex-column gap-3">
+                    <div class="d-flex align-items-center">
+                        <i class="bi bi-check-circle-fill text-primary me-3"></i>
+                        <span>One-line installation</span>
+                    </div>
+                    <div class="d-flex align-items-center">
+                        <i class="bi bi-check-circle-fill text-primary me-3"></i>
+                        <span>Git-like push commands</span>
+                    </div>
+                    <div class="d-flex align-items-center">
+                        <i class="bi bi-check-circle-fill text-primary me-3"></i>
+                        <span>Recursive directory uploads</span>
+                    </div>
+                </div>
+                <a href="{{ url_for('install_page') }}" class="btn btn-dark mt-4">
+                    View CLI Documentation
+                </a>
+            </div>
+            <div class="col-lg-6">
+                <div class="bg-dark rounded-3 p-4 shadow-lg mt-4 mt-lg-0"
+                    style="font-family: 'Courier New', monospace;">
+                    <div class="d-flex gap-2 mb-3">
+                        <div class="rounded-circle bg-danger" style="width: 12px; height: 12px;"></div>
+                        <div class="rounded-circle bg-warning" style="width: 12px; height: 12px;"></div>
+                        <div class="rounded-circle bg-success" style="width: 12px; height: 12px;"></div>
+                    </div>
+                    <div class="text-light">
+                        <div class="mb-2">
+                            <span class="text-success">➜</span> <span class="text-info">~</span> nexuss push project/
+                        </div>
+                        <div class="mb-2 text-muted">
+                            🔍 Assessing project content...<br>
+                            Found 15 files (2.4 MB)<br>
+                            🚀 Pushing to remote server...
+                        </div>
+                        <div class="mb-2">
+                            <span class="text-success">✓</span> Uploaded src/main.py<br>
+                            <span class="text-success">✓</span> Uploaded src/utils.py<br>
+                            <span class="text-success">✓</span> Uploaded assets/logo.png
+                        </div>
+                        <div class="text-success fw-bold">
+                            ✅ Push complete!
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+    .gradient-text {
+        background: linear-gradient(45deg, #0d6efd, #0dcaf0);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+    }
+
+    .hero-section {
+        position: relative;
+        overflow: hidden;
+    }
+</style>
+{% endblock %}

@@ -12,7 +12,7 @@ YELLOW='\033[1;33m'
 NC='\033[0m' # No Color
 
 # Configuration
-SERVER_URL="${FILEVAULT_SERVER:-https://password-manager-ccgh.onrender.com}"
+SERVER_URL="${FILEVAULT_SERVER:-https://nexussfm.onrender.com}"
 INSTALL_DIR="$HOME/.local/bin"
 CLIENT_FILE="filevault_client.py"
 

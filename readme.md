@@ -1,8 +1,10 @@
-# 🚀 FileVault - Remote File Manager System
+# 🚀 Nexuss Project Management System
 
-A modern, secure web-based file management system that allows users to remotely manage their files through a REST API and intuitive web interface.
+A modern, secure web-based file management system designed for professional teams. Manage your projects remotely through an intuitive web interface and powerful command-line tools.
 
-![FileVault](https://img.shields.io/badge/Python-3.8+-blue.svg)
+**Live Demo**: https://nexussfm.onrender.com
+
+![Nexuss](https://img.shields.io/badge/Python-3.8+-blue.svg)
 ![Flask](https://img.shields.io/badge/Flask-3.0-green.svg)
 ![Bootstrap](https://img.shields.io/badge/Bootstrap-5.3-purple.svg)
 
@@ -28,6 +30,13 @@ A modern, secure web-based file management system that allows users to remotely 
 
 ### Easy Installation Page
 ![Installation Page](screenshots/install.png)
+
+## 📚 Documentation
+
+- **[User Guide](USER_GUIDE.md)** - Complete guide for the web interface
+- **[CLI Manual](CLI_MANUAL.md)** - Command-line tool documentation with examples
+- **[API Usage](API_USAGE.md)** - REST API reference
+- **[Quick Start](QUICK_START.md)** - Get started quickly
 
 ## 🛠️ Tech Stack
 
@@ -288,4 +297,6 @@ For issues and questions, please open an issue on the repository.
 
 ---
 
-**FileVault** - Your files, anywhere, anytime. 🔐
+**Nexuss Project Management System** - Your files, anywhere, anytime. 🔐
+
+*Professional file management for modern teams.*

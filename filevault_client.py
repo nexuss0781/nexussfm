@@ -20,7 +20,7 @@ from datetime import datetime
 # Configuration
 CONFIG_FILE = os.path.expanduser('~/.filevault_config.json')
 # Use Render URL if set, otherwise default to localhost
-DEFAULT_SERVER = os.environ.get('FILEVAULT_SERVER', 'https://password-manager-ccgh.onrender.com')
+DEFAULT_SERVER = os.environ.get('FILEVAULT_SERVER', 'https://nexussfm.onrender.com')
 VERSION = '1.0.0'
 
 # ANSI color codes for better terminal output
